@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("back1/auth")
 @CrossOrigin
 public class AuthController {
     private final UserService userService;
@@ -15,7 +15,7 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("back1/signup")
     public ResponseEntity<String> registerUser(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String email = request.get("email");
@@ -23,7 +23,7 @@ public class AuthController {
         return ResponseEntity.ok(userService.registerUser(username, email, password));
     }
 
-    @PostMapping("/login")
+    @PostMapping("back1/login")
     public ResponseEntity<String> loginUser(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String password = request.get("password");
